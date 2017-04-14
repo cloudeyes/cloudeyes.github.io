@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>Hexo로 github.io에 블로그 만들기 | Cloudeyes&#39; Tech Lab</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="hexo, hueman, blog, web, stylus, github, git" />
+    
+    <meta name="description" content="Notegithub.io 에 hexo를 이용해 블로그를 만드는 방법을 소개합니다.  목차  github.io 계정 만들기 github 에서 블로깅용 repository를 생성한다. hexo를 설치한다. hexo 블로그 레포지터리를 생성한다.   hexo 추가 설정 github.io에 자동 deploy 설정 git deploy 플러그인 설치 _config.y">
+<meta name="keywords" content="hexo, hueman, blog, web, stylus, github, git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo로 github.io에 블로그 만들기">
+<meta property="og:url" content="http://cloudeyes.github.io/2016/12/17/2016-12-17-Setup-Hexo-at-Github-io-using-Hexo/index.html">
+<meta property="og:site_name" content="Cloudeyes' Tech Lab">
+<meta property="og:description" content="Notegithub.io 에 hexo를 이용해 블로그를 만드는 방법을 소개합니다.  목차  github.io 계정 만들기 github 에서 블로깅용 repository를 생성한다. hexo를 설치한다. hexo 블로그 레포지터리를 생성한다.   hexo 추가 설정 github.io에 자동 deploy 설정 git deploy 플러그인 설치 _config.y">
+<meta property="og:updated_time" content="2017-04-12T12:43:09.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo로 github.io에 블로그 만들기">
+<meta name="twitter:description" content="Notegithub.io 에 hexo를 이용해 블로그를 만드는 방법을 소개합니다.  목차  github.io 계정 만들기 github 에서 블로깅용 repository를 생성한다. hexo를 설치한다. hexo 블로그 레포지터리를 생성한다.   hexo 추가 설정 github.io에 자동 deploy 설정 git deploy 플러그인 설치 _config.y">
+    
+
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.0.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">Object Oriented Life: Cloudeyes&#39; IT Tech Lab.</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Tech/">Tech</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Tech/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Tech/Linux/">Linux</a></li></ul></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Tech/">Tech</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Tech/Hexo/">Hexo</a>
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-2016-12-17-Setup-Hexo-at-Github-io-using-Hexo" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Hexo로 github.io에 블로그 만들기
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2016/12/17/2016-12-17-Setup-Hexo-at-Github-io-using-Hexo/" class="article-date">
+            <time datetime="2016-12-16T23:20:00.000Z" itemprop="datePublished">2016-12-17</time>
+        </a>
+    </div>
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/hexo-hueman-blog-web-stylus-github-git/">hexo, hueman, blog, web, stylus, github, git</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <div class="admonition info"><p class="admonition-title">Note</p><p>github.io 에 hexo를 이용해 블로그를 만드는 방법을 소개합니다.</p>
+</div>
+<h1 id="목차"><a href="#목차" class="headerlink" title="목차"></a>목차</h1><!-- toc -->
+<ul>
+<li><a href="#githubio-계정-만들기">github.io 계정 만들기</a><ul>
+<li><a href="#github-에서-블로깅용-repository를-생성한다">github 에서 블로깅용 repository를 생성한다.</a></li>
+<li><a href="#hexo를-설치한다">hexo를 설치한다.</a></li>
+<li><a href="#hexo-블로그-레포지터리를-생성한다">hexo 블로그 레포지터리를 생성한다.</a></li>
+</ul>
+</li>
+<li><a href="#hexo-추가-설정">hexo 추가 설정</a><ul>
+<li><a href="#githubio에-자동-deploy-설정">github.io에 자동 deploy 설정</a><ul>
+<li><a href="#git-deploy-플러그인-설치">git deploy 플러그인 설치</a></li>
+<li><a href="#_configyml에-설정-추가"><code>_config.yml</code>에 설정 추가.</a></li>
+</ul>
+</li>
+<li><a href="#disquss-코멘트-달기">Disquss 코멘트 달기</a><ul>
+<li><a href="#disqusscom-사이트-가입-후-개인-계정-설정">disquss.com 사이트 가입 후 개인 계정 설정</a></li>
+<li><a href="#_configyml에-다음-항목-추가"><code>_config.yml</code>에 다음 항목 추가</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#블로깅-시작하기">블로깅 시작하기</a><ul>
+<li><a href="#새-포스트를-생성한다">새 포스트를 생성한다.</a></li>
+<li><a href="#서버를-실행한다">서버를 실행한다.</a></li>
+<li><a href="#정적-파일을-만든다">정적 파일을 만든다.</a></li>
+<li><a href="#원격-서버에-deploy-한다">원격 서버에 deploy 한다.</a></li>
+</ul>
+</li>
+<li><a href="#기타-삽질">기타 삽질</a><ul>
+<li><a href="#강조-상자note-warning-등을-나타내는-admonition-섹션-추가하기">강조 상자(<em>note</em>, <em>warning</em> 등을 나타내는 <em>admonition</em> 섹션) 추가하기</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+<h1 id="githubio-계정-만들기"><a href="#github-io-계정-만들기" class="headerlink" title="github.io 계정 만들기"></a>github.io 계정 만들기</h1><h2 id="github-에서-블로깅용-repository를-생성한다"><a href="#github-에서-블로깅용-repository를-생성한다" class="headerlink" title="github 에서 블로깅용 repository를 생성한다."></a>github 에서 블로깅용 repository를 생성한다.</h2><ul>
+<li>자기 계정이 <code>github.com/cloudeyes</code>라면 <code>cloudeyes.github.io</code>라는 레포지터리를 만든다.</li>
+</ul>
+<h2 id="hexo를-설치한다"><a href="#hexo를-설치한다" class="headerlink" title="hexo를 설치한다."></a>hexo를 설치한다.</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-cli -g</div></pre></td></tr></table></figure>
+<h2 id="hexo-블로그-레포지터리를-생성한다"><a href="#hexo-블로그-레포지터리를-생성한다" class="headerlink" title="hexo 블로그 레포지터리를 생성한다."></a>hexo 블로그 레포지터리를 생성한다.</h2><p>   우리가 만든 github 레포지터리에는 렌더링된 정적 파일(html, js, css 등)만 남기 때문에<br>   블로그 원본 보존이 필요하다.<br>   사적인 파일이므로 로컬에 보관하거나, github에 돈을 내고 private repository를 추가<br>   할 수 있도록 계정 업그레이드를 해야 할 것이다.<br>   <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ hexo init blog</div><div class="line">$ git init</div><div class="line">$ git add .gitignore _config.yml package.json <span class="built_in">source</span> scaffolds</div><div class="line">$ git commit -m <span class="string">"initial import"</span></div></pre></td></tr></table></figure></p>
+<h1 id="hexo-추가-설정"><a href="#hexo-추가-설정" class="headerlink" title="hexo 추가 설정"></a>hexo 추가 설정</h1><h2 id="githubio에-자동-deploy-설정"><a href="#github-io에-자동-deploy-설정" class="headerlink" title="github.io에 자동 deploy 설정"></a>github.io에 자동 deploy 설정</h2><h3 id="git-deploy-플러그인-설치"><a href="#git-deploy-플러그인-설치" class="headerlink" title="git deploy 플러그인 설치"></a>git deploy 플러그인 설치</h3>   <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
+<h3 id="_configyml에-설정-추가"><a href="#config-yml에-설정-추가" class="headerlink" title="_config.yml에 설정 추가."></a><code>_config.yml</code>에 설정 추가.</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="attr">deploy:</span></div><div class="line"><span class="attr">  type:</span> <span class="string">git</span></div><div class="line"><span class="attr">  repo:</span> <span class="attr">http://github.com/cloudeyes/cloudeyes.github.io</span></div><div class="line"><span class="attr">  message:</span> <span class="string">"updated: <span class="template-variable">&#123;&#123; now('YYYY-MM-DD HH:mm:ss') &#125;&#125;</span>)"</span></div></pre></td></tr></table></figure>
+<h2 id="disquss-코멘트-달기"><a href="#Disquss-코멘트-달기" class="headerlink" title="Disquss 코멘트 달기"></a>Disquss 코멘트 달기</h2><h3 id="disqusscom-사이트-가입-후-개인-계정-설정"><a href="#disquss-com-사이트-가입-후-개인-계정-설정" class="headerlink" title="disquss.com 사이트 가입 후 개인 계정 설정"></a>disquss.com 사이트 가입 후 개인 계정 설정</h3><ul>
+<li>settings 에서 <em>shortname</em>을 기억해둔다.</li>
+</ul>
+<h3 id="_configyml에-다음-항목-추가"><a href="#config-yml에-다음-항목-추가" class="headerlink" title="_config.yml에 다음 항목 추가"></a><code>_config.yml</code>에 다음 항목 추가</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attr">disqus_shortname:</span> <span class="string">cloudeyes-github-io</span></div></pre></td></tr></table></figure>
+<h1 id="블로깅-시작하기"><a href="#블로깅-시작하기" class="headerlink" title="블로깅 시작하기"></a>블로깅 시작하기</h1><h2 id="새-포스트를-생성한다"><a href="#새-포스트를-생성한다" class="headerlink" title="새 포스트를 생성한다."></a>새 포스트를 생성한다.</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<ul>
+<li>관련링크: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></li>
+</ul>
+<h2 id="서버를-실행한다"><a href="#서버를-실행한다" class="headerlink" title="서버를 실행한다."></a>서버를 실행한다.</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<div class="admonition note"><p class="admonition-title">매번 `hexo generate`를 실행해야 할까?</p><p>hexo 서버는 md 파일 변경을 자동으로 감지한다. 블로그 내용을 수정했다면<br>브라우저 새로고침을 해서 변경 내용을 바로 확인할 수 있다.</p>
+<ul>
+<li>관련링크: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></li>
+</ul>
+</div>
+<h2 id="정적-파일을-만든다"><a href="#정적-파일을-만든다" class="headerlink" title="정적 파일을 만든다."></a>정적 파일을 만든다.</h2><div class="admonition note"><p class="admonition-title">generate가 반드시 필요한가?</p><p>generate -&gt; deploy 과정이 번거롭다면 deploy만 해도 변경 내용에 대해서<br>자동으로 generate 되는 듯 하다.</p>
+</div>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<ul>
+<li>관련링크: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></li>
+</ul>
+<h2 id="원격-서버에-deploy-한다"><a href="#원격-서버에-deploy-한다" class="headerlink" title="원격 서버에 deploy 한다."></a>원격 서버에 deploy 한다.</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<ul>
+<li>관련링크: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></li>
+</ul>
+<h1 id="기타-삽질"><a href="#기타-삽질" class="headerlink" title="기타 삽질"></a>기타 삽질</h1><h2 id="강조-상자note-warning-등을-나타내는-admonition-섹션-추가하기"><a href="#강조-상자-note-warning-등을-나타내는-admonition-섹션-추가하기" class="headerlink" title="강조 상자(note, warning 등을 나타내는 admonition 섹션) 추가하기"></a>강조 상자(<em>note</em>, <em>warning</em> 등을 나타내는 <em>admonition</em> 섹션) 추가하기</h2><ul>
+<li><p>플러그인을 설치합니다 (<a href="https://github.com/haishanh/hexo-tag-admonition" target="_blank" rel="external">이곳</a>을 참조)</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save hexo-tag-admonition</div></pre></td></tr></table></figure>
+</li>
+<li><p><code>themes/admon.styl</code>파일을 만듭니다 (readthedoc.io의 스타일 시트를 Stylus로 직접 옮긴 것입니다.)</p>
+  <figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">admon-title</span><span class="params">(<span class="variable">$color</span>)</span></span></div><div class="line">  <span class="attribute">color</span>: <span class="number">#fff</span></div><div class="line">  <span class="attribute">font-weight</span>: bold</div><div class="line">  <span class="attribute">background-color</span>: <span class="variable">$color</span></div><div class="line">  <span class="attribute">line-height</span>: <span class="number">16px</span> !important</div><div class="line">  <span class="attribute">margin-top</span>: -<span class="number">12px</span> !important</div><div class="line">  <span class="attribute">margin-right</span>: -<span class="number">12px</span> !important</div><div class="line">  <span class="attribute">margin-bottom</span>: <span class="number">12px</span> !important</div><div class="line">  <span class="attribute">margin-left</span>: -<span class="number">12px</span> !important</div><div class="line">  <span class="attribute">padding-top</span>: <span class="number">6px</span> !important</div><div class="line">  <span class="attribute">padding-right</span>: <span class="number">12px</span> !important</div><div class="line">  <span class="attribute">padding-bottom</span>: <span class="number">6px</span> !important</div><div class="line">  <span class="attribute">padding-left</span>: <span class="number">12px</span> !important</div><div class="line"></div><div class="line"><span class="selector-class">.admonition</span></div><div class="line">  <span class="attribute">margin-bottom</span>: <span class="number">24px</span></div><div class="line">  <span class="attribute">padding-top</span>: <span class="number">6px</span> !important</div><div class="line">  <span class="attribute">padding-right</span>: <span class="number">12px</span></div><div class="line">  <span class="attribute">padding-bottom</span>: <span class="number">6px</span> !important</div><div class="line">  <span class="attribute">padding-left</span>: <span class="number">12px</span></div><div class="line">  <span class="attribute">color</span>: <span class="number">404040</span></div><div class="line">  <span class="attribute">text-align</span>: left</div><div class="line">  &amp;-title:before</div><div class="line">    <span class="attribute">content</span>: <span class="string">" "</span></div><div class="line">    <span class="attribute">font-family</span>: FontAwesome</div><div class="line">  &amp;<span class="selector-class">.note</span>, &amp;<span class="selector-class">.info</span></div><div class="line">    <span class="attribute">background-color</span>: <span class="number">#e7f2fa</span></div><div class="line">    &amp; ^[-<span class="number">1</span>]-title</div><div class="line">      admon-title(<span class="number">#6ab0de</span>)</div><div class="line">  &amp;<span class="selector-class">.tip</span></div><div class="line">    <span class="attribute">background-color</span>: <span class="number">#dbfaf4</span> </div><div class="line">    &amp; ^[-<span class="number">1</span>]-title</div><div class="line">      admon-title(<span class="number">#1abc9c</span>)</div><div class="line">  &amp;<span class="selector-class">.warning</span>, &amp;<span class="selector-class">.warn</span>, &amp;<span class="selector-class">.important</span></div><div class="line">    <span class="attribute">background-color</span>: <span class="number">#ffedcc</span></div><div class="line">    &amp; ^[-<span class="number">1</span>]-title</div><div class="line">      admon-title(<span class="number">#f0b37e</span>)</div><div class="line">  &amp;<span class="selector-class">.danger</span>, &amp;<span class="selector-class">.critical</span></div><div class="line">    <span class="attribute">background-color</span>: <span class="number">#f29f97</span></div><div class="line">    &amp; ^[-<span class="number">1</span>]-title</div><div class="line">      admon-title(<span class="number">#df3</span>f2)</div></pre></td></tr></table></figure>
+</li>
+<li><p><code>themes/&lt;테마명&gt;/source/css/style.styl</code>파일에 다음 <code>import</code>문을 추가합니다.</p>
+  <figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">@import <span class="string">"../../../admon"</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>태그를 이용해 강조 상자를 표시할 수 있습니다.</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;% admonition tip TIP: hexo-tag-admonition 플러그인 기능 %&#125;</div><div class="line">`note` `tip` `warn` `danger` 같은 강조(admonition)가 가능하다.</div><div class="line">&#123;% endadmonition %&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>위 코드는 다음과 같이 변환됩니다.</p>
+<pre><code>{% admonition tip TIP: hexo-tag-admonition 플러그인 기능 %}
+    `note` `tip` `warn` `danger` 같은 강조(admonition)가 가능하다.
+    {% endadmonition %}
+</code></pre><ul>
+<li><p><code>warn</code>, <code>tip</code>, <code>danger</code>같은 강조 상자도 표시 가능합니다.</p>
+  <div class="admonition warn"><p class="admonition-title">주의사항</p><p><code>styles.styl</code> 파일을 수정해야 스타일이 반영된다.</p>
+</div>
+  <div class="admonition note"><p class="admonition-title">참고</p><p>스타일시트는 readthedocs.io 의 기본 테마를 옮긴 것이다. </p>
+</div>
+  <div class="admonition danger"><p class="admonition-title">위험</p><p>이 삽질은 굉장한 노오력을 필요로 합니다.</p>
+</div>
+</li>
+</ul>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://cloudeyes.github.io/2016/12/17/2016-12-17-Setup-Hexo-at-Github-io-using-Hexo/" data-id="cj1ez0dbc00023rommoh59288" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/cloudeyes" target="_blank">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2016/12/17/2016-12-17-Linx-Remote-Tip/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">원격 터미널에서 리눅스 쾌적하게 사용하기</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/04/12/2017-04-12-CentOS-7-Init-Setup/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/2017/04/12/2017-04-12-CentOS-7-Init-Setup/images/capture/2017-04-12-12-16-57.png)" alt="CentOS 7 기본설정" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Tech/">Tech</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Tech/Linux/">Linux</a></p>
+                            <p class="item-title"><a href="/2017/04/12/2017-04-12-CentOS-7-Init-Setup/" class="title">CentOS 7 기본설정</a></p>
+                            <p class="item-date"><time datetime="2017-04-12T03:02:20.000Z" itemprop="datePublished">2017-04-12</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/12/17/2016-12-17-Linx-Remote-Tip/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Tech/">Tech</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Tech/Linux/">Linux</a></p>
+                            <p class="item-title"><a href="/2016/12/17/2016-12-17-Linx-Remote-Tip/" class="title">원격 터미널에서 리눅스 쾌적하게 사용하기</a></p>
+                            <p class="item-date"><time datetime="2016-12-17T06:57:24.000Z" itemprop="datePublished">2016-12-17</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/12/17/2016-12-17-Setup-Hexo-at-Github-io-using-Hexo/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Tech/">Tech</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Tech/Hexo/">Hexo</a></p>
+                            <p class="item-title"><a href="/2016/12/17/2016-12-17-Setup-Hexo-at-Github-io-using-Hexo/" class="title">Hexo로 github.io에 블로그 만들기</a></p>
+                            <p class="item-date"><time datetime="2016-12-16T23:20:00.000Z" itemprop="datePublished">2016-12-17</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Tech/">Tech</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Tech/Hexo/">Hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tech/Linux/">Linux</a><span class="category-list-count">2</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo-hueman-blog-web-stylus-github-git/">hexo, hueman, blog, web, stylus, github, git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux-centos-setting-setup-리눅스-설치/">linux, centos, setting, setup, 리눅스, 설치</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux-tmux-shell-tip/">linux, tmux, shell, tip</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/hexo-hueman-blog-web-stylus-github-git/" style="font-size: 10px;">hexo, hueman, blog, web, stylus, github, git</a> <a href="/tags/linux-centos-setting-setup-리눅스-설치/" style="font-size: 10px;">linux, centos, setting, setup, 리눅스, 설치</a> <a href="/tags/linux-tmux-shell-tip/" style="font-size: 10px;">linux, tmux, shell, tip</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2017 Joseph Kim</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://cloudeyes.github.io/2016/12/17/2016-12-17-Setup-Hexo-at-Github-io-using-Hexo/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
