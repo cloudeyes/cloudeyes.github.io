@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://cloudeyes.github.io/2016/12/17/2016-12-17-Setup-Hexo-at-Github-io-using-Hexo/index.html">
 <meta property="og:site_name" content="Cloudeyes' Tech Lab">
 <meta property="og:description" content="Notegithub.io 에 hexo를 이용해 블로그를 만드는 방법을 소개합니다.  목차  github.io 계정 만들기 github 에서 블로깅용 repository를 생성한다. hexo를 설치한다. hexo 블로그 레포지터리를 생성한다.   hexo 추가 설정 github.io에 자동 deploy 설정 git deploy 플러그인 설치 _config.y">
-<meta property="og:updated_time" content="2017-04-12T12:43:09.000Z">
+<meta property="og:updated_time" content="2017-04-12T13:06:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo로 github.io에 블로그 만들기">
 <meta name="twitter:description" content="Notegithub.io 에 hexo를 이용해 블로그를 만드는 방법을 소개합니다.  목차  github.io 계정 만들기 github 에서 블로깅용 repository를 생성한다. hexo를 설치한다. hexo 블로그 레포지터리를 생성한다.   hexo 추가 설정 github.io에 자동 deploy 설정 git deploy 플러그인 설치 _config.y">
@@ -187,13 +187,7 @@
 </li>
 </ul>
 </li>
-<li><a href="#블로깅-시작하기">블로깅 시작하기</a><ul>
-<li><a href="#새-포스트를-생성한다">새 포스트를 생성한다.</a></li>
-<li><a href="#서버를-실행한다">서버를 실행한다.</a></li>
-<li><a href="#정적-파일을-만든다">정적 파일을 만든다.</a></li>
-<li><a href="#원격-서버에-deploy-한다">원격 서버에 deploy 한다.</a></li>
-</ul>
-</li>
+<li><a href="#블로깅-시작하기">블로깅 시작하기</a></li>
 <li><a href="#기타-삽질">기타 삽질</a><ul>
 <li><a href="#강조-상자note-warning-등을-나타내는-admonition-섹션-추가하기">강조 상자(<em>note</em>, <em>warning</em> 등을 나타내는 <em>admonition</em> 섹션) 추가하기</a></li>
 </ul>
@@ -211,26 +205,38 @@
 <li>settings 에서 <em>shortname</em>을 기억해둔다.</li>
 </ul>
 <h3 id="_configyml에-다음-항목-추가"><a href="#config-yml에-다음-항목-추가" class="headerlink" title="_config.yml에 다음 항목 추가"></a><code>_config.yml</code>에 다음 항목 추가</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attr">disqus_shortname:</span> <span class="string">cloudeyes-github-io</span></div></pre></td></tr></table></figure>
-<h1 id="블로깅-시작하기"><a href="#블로깅-시작하기" class="headerlink" title="블로깅 시작하기"></a>블로깅 시작하기</h1><h2 id="새-포스트를-생성한다"><a href="#새-포스트를-생성한다" class="headerlink" title="새 포스트를 생성한다."></a>새 포스트를 생성한다.</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<h1 id="블로깅-시작하기"><a href="#블로깅-시작하기" class="headerlink" title="블로깅 시작하기"></a>블로깅 시작하기</h1><ol>
+<li>새 포스트를 생성한다.<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
 <ul>
 <li>관련링크: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></li>
 </ul>
-<h2 id="서버를-실행한다"><a href="#서버를-실행한다" class="headerlink" title="서버를 실행한다."></a>서버를 실행한다.</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<ol>
+<li>서버를 실행한다.<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+</li>
+</ol>
 <div class="admonition note"><p class="admonition-title">매번 `hexo generate`를 실행해야 할까?</p><p>hexo 서버는 md 파일 변경을 자동으로 감지한다. 블로그 내용을 수정했다면<br>브라우저 새로고침을 해서 변경 내용을 바로 확인할 수 있다.</p>
 <ul>
 <li>관련링크: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></li>
 </ul>
 </div>
-<h2 id="정적-파일을-만든다"><a href="#정적-파일을-만든다" class="headerlink" title="정적 파일을 만든다."></a>정적 파일을 만든다.</h2><div class="admonition note"><p class="admonition-title">generate가 반드시 필요한가?</p><p>generate -&gt; deploy 과정이 번거롭다면 deploy만 해도 변경 내용에 대해서<br>자동으로 generate 되는 듯 하다.</p>
+<ol>
+<li><p>정적 파일을 만든다.</p>
+ <div class="admonition note"><p class="admonition-title">generate가 반드시 필요한가?</p><p>generate -&gt; deploy 과정이 번거롭다면 deploy만 해도 변경 내용에 대해서<br>자동으로 generate 되는 듯 하다.</p>
 </div>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
 <ul>
 <li>관련링크: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></li>
 </ul>
-<h2 id="원격-서버에-deploy-한다"><a href="#원격-서버에-deploy-한다" class="headerlink" title="원격 서버에 deploy 한다."></a>원격 서버에 deploy 한다.</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+</li>
+<li><p>원격 서버에 deploy 한다.</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
 <ul>
 <li>관련링크: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></li>
 </ul>
+</li>
+</ol>
 <h1 id="기타-삽질"><a href="#기타-삽질" class="headerlink" title="기타 삽질"></a>기타 삽질</h1><h2 id="강조-상자note-warning-등을-나타내는-admonition-섹션-추가하기"><a href="#강조-상자-note-warning-등을-나타내는-admonition-섹션-추가하기" class="headerlink" title="강조 상자(note, warning 등을 나타내는 admonition 섹션) 추가하기"></a>강조 상자(<em>note</em>, <em>warning</em> 등을 나타내는 <em>admonition</em> 섹션) 추가하기</h2><ul>
 <li><p>플러그인을 설치합니다 (<a href="https://github.com/haishanh/hexo-tag-admonition" target="_blank" rel="external">이곳</a>을 참조)</p>
   <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save hexo-tag-admonition</div></pre></td></tr></table></figure>
@@ -266,7 +272,7 @@
 
 
 
-    <a data-url="http://cloudeyes.github.io/2016/12/17/2016-12-17-Setup-Hexo-at-Github-io-using-Hexo/" data-id="cj1ez0dbc00023rommoh59288" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://cloudeyes.github.io/2016/12/17/2016-12-17-Setup-Hexo-at-Github-io-using-Hexo/" data-id="cj1hxszid00021romj10u6vtl" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -388,7 +394,7 @@
                             <a href="/2017/04/12/2017-04-12-CentOS-7-Init-Setup/" class="thumbnail">
     
     
-        <span style="background-image:url(/2017/04/12/2017-04-12-CentOS-7-Init-Setup/images/capture/2017-04-12-12-16-57.png)" alt="CentOS 7 기본설정" class="thumbnail-image"></span>
+        <span style="background-image:url(/2017/04/12/2017-04-12-CentOS-7-Init-Setup/images/capture/2017-04-12-21-53-18.png)" alt="CentOS 7 기본설정" class="thumbnail-image"></span>
     
     
 </a>
